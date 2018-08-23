@@ -1,0 +1,3 @@
+[submodule "y-s-datasets"]
+	path = y-s-datasets
+	url = https://github.com/y-space/y-s-datasets.git
