@@ -14,6 +14,7 @@ RUN pip install gunicorn flask flask-cors
 COPY api.py api.py
 COPY wsgi.py wsgi.py
 COPY y-s-datasets/exoplanets/exoplanets.json y-s-datasets/exoplanets/exoplanets.json
+COPY y-s-datasets/exoplanets/exoplanets-stats.json y-s-datasets/exoplanets/exoplanets-stats.json
 COPY y-s-datasets/messier/messier.json y-s-datasets/messier/messier.json
 
 EXPOSE 7799
