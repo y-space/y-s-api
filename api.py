@@ -11,6 +11,9 @@ CORS(app)
 with open('y-s-datasets/exoplanets/exoplanets.json') as f:
     exoplanets = json.load(f)
 
+with open('y-s-datasets/exoplanets/exoplanets-stats.json') as f:
+    exoplanets_stats = json.load(f)
+
 with open('y-s-datasets/messier/messier.json') as f:
     messier = json.load(f)
 
@@ -37,6 +40,9 @@ def get_exoplanets_by_hostname(hs_name):
         if p['pl_hostname'] == hs_name:
             res.append(p)
     return jsonify(res)
+@app.route('/exoplanets/stats', methods=['GET'])
+def get_exoplanets_stats():
+    return jsonify(exoplanets_stats)
 
 @app.route('/messier', methods=['GET'])
 def get_messier():
