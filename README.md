@@ -9,7 +9,7 @@ The API is available here: http://api.y-space.pw
 
 Clone the project including the datasets submodule:
 
-    $ $ git clone --recursive https://github.com/y-space/y-s-api.git
+    $ git clone --recursive https://github.com/y-space/y-s-api.git
 
 Build the Docker image:
 
