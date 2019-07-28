@@ -9,7 +9,7 @@ RUN mkdir /app/y-s-datasets/exoplanets
 RUN mkdir /app/y-s-datasets/messier
 WORKDIR /app
 
-RUN pip install gunicorn flask flask-cors
+RUN pip install gunicorn flask flask-cors astropy
 
 COPY api.py api.py
 COPY wsgi.py wsgi.py
