@@ -1,7 +1,8 @@
 
 # y-s-api
 
-FROM python:3.7-alpine
+FROM frolvlad/alpine-python-machinelearning
+RUN apk add --update --no-cache gcc g++ wget python3-dev
 
 RUN mkdir /app
 RUN mkdir /app/y-s-datasets
@@ -9,7 +10,8 @@ RUN mkdir /app/y-s-datasets/exoplanets
 RUN mkdir /app/y-s-datasets/messier
 WORKDIR /app
 
-RUN pip install gunicorn flask flask-cors astropy
+RUN pip install astropy
+RUN pip install gunicorn flask flask-cors
 
 COPY api.py api.py
 COPY wsgi.py wsgi.py
