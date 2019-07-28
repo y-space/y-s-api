@@ -8,6 +8,7 @@ RUN mkdir /app
 RUN mkdir /app/y-s-datasets
 RUN mkdir /app/y-s-datasets/exoplanets
 RUN mkdir /app/y-s-datasets/messier
+RUN mkdir /app/y-s-datasets/tess
 WORKDIR /app
 
 RUN pip install astropy
@@ -18,6 +19,7 @@ COPY wsgi.py wsgi.py
 COPY y-s-datasets/exoplanets/exoplanets.json y-s-datasets/exoplanets/exoplanets.json
 COPY y-s-datasets/exoplanets/exoplanets-stats.json y-s-datasets/exoplanets/exoplanets-stats.json
 COPY y-s-datasets/messier/messier.json y-s-datasets/messier/messier.json
+COPY y-s-datasets/tess/tess.json y-s-datasets/tess/tess.json
 
 EXPOSE 7799
 
