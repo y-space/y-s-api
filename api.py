@@ -5,8 +5,10 @@ from flask_cors import CORS
 import json
 from random import sample
 from astropy.io import fits
+from collections import OrderedDict
 
 app = Flask(__name__)
+app.config["JSON_SORT_KEYS"] = False
 CORS(app)
 
 with open('y-s-datasets/exoplanets/exoplanets.json') as f:
@@ -20,6 +22,12 @@ with open('y-s-datasets/messier/messier.json') as f:
 
 with open('y-s-datasets/tess/tess.json') as f:
     tess = json.load(f)
+
+with open('y-s-datasets/sunspots/sunspots-daily.json') as f:
+    sunspots_daily = json.load(f, object_pairs_hook=OrderedDict)
+
+with open('y-s-datasets/sunspots/sunspots-monthly.json') as f:
+    sunspots_monthly = json.load(f)
 
 @app.route('/exoplanets', methods=['GET'])
 def get_exoplanets():
@@ -98,6 +106,14 @@ def get_tess_full_by_id(ticid):
       return jsonify(tess[ticid])
     else:
       return jsonify({ 'error': 'Object not found.' })
+
+@app.route('/sunspots/daily', methods=['GET'])
+def get_sunspots_daily():
+    print(sunspots_daily[0])
+    return jsonify(sunspots_daily)
+@app.route('/sunspots/monthly', methods=['GET'])
+def get_sunspots_monthly():
+    return jsonify(sunspots_monthly)
 
 @app.route('/', methods=['GET'])
 def _root():
